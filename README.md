@@ -225,6 +225,7 @@ I have provisioned Grafana as well. The dashboards can be added as yml files in 
 - I have kept the code very simple for the assignment. 
 - I have referenced my old projects and some of the open source repos from Github to complete this task.
 - The code can still be refactored and made modular if necessary
+- Code scanning tools like Blackduck, Trivy can also be added to the CI piplene to enhance security
 
 ---
 
