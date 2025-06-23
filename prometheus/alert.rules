@@ -1,0 +1,11 @@
+groups:
+  - name: HAProxyAlerts
+    rules:
+      - alert: OnPremIsDown
+        expr: haproxy_server_up{backend="api_backend", server="onprem"} == 0
+        for: 1m
+        labels:
+          severity: 'critical'
+        annotations:
+          summary: "On-prem server is down"
+          description: "Traffic has been routed to backup Cloud!!"

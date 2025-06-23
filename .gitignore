@@ -1,0 +1,11 @@
+# Terraform local variable files
+*.tfvars
+*.tfvars.json
+
+# Other Terraform files to ignore
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+alertmanager/password.txt

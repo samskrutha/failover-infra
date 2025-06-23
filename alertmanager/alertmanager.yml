@@ -1,0 +1,21 @@
+global:
+  smtp_from: 'from_address@gmail.com' # -> From address
+
+  smtp_smarthost: 'smtp.gmail.com:587'
+
+  smtp_auth_username: 'username@gmail.com' # -> GMAIL address
+
+  smtp_auth_password_file: '/etc/alertmanager/password.txt' # -> Create a password.txt file under alertmanager and store your password for the local testing
+
+route:
+  receiver: 'email-notifications'
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+
+
+receivers:
+- name: 'email-notifications'
+  email_configs:
+    - to: 'to_address@gmail.com' # -> Change here to the senders address!!
+      send_resolved: true

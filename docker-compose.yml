@@ -1,0 +1,76 @@
+# This file is for testing, you can use it just to test the service with docker compose build command
+
+# version: '3.8'
+
+# networks:
+#   appnet:
+#     driver: bridge
+
+# services:
+#   api-onprem:
+#     build: ./api
+#     container_name: api-onprem
+#     ports:
+#       - "5000:5000"
+#     networks:
+#       - appnet
+
+#   api-cloud:
+#     build: ./api
+#     container_name: api-cloud
+#     ports:
+#       - "5001:5000"
+#     networks:
+#       - appnet
+
+#   haproxy:
+#     image: haproxy:2.8
+#     container_name: haproxy-server
+#     ports:
+#       - "80:80"
+#     volumes:
+#       - ./haproxy:/usr/local/etc/haproxy:ro
+#     networks:
+#       - appnet
+#     depends_on:
+#       - api-onprem
+#       - api-cloud
+
+#   haproxy-exporter:
+#     image: prom/haproxy-exporter:v0.14.0
+#     container_name: haproxy-exporter
+#     command: --haproxy.scrape-uri=http://admin:password@haproxy-server/haproxy?stats;csv
+#     networks:
+#       - appnet
+#     depends_on:
+#       - haproxy
+
+#   prometheus:
+#     image: prom/prometheus:v2.45.0
+#     container_name: prometheus
+#     ports:
+#       - "9090:9090"
+#     volumes:
+#       - ./prometheus:/etc/prometheus:ro
+#     networks:
+#       - appnet
+#     depends_on:
+#       - haproxy-exporter
+
+#   alertmanager:
+#     image: prom/alertmanager:v0.25.0
+#     container_name: alertmanager
+#     ports:
+#       - "9093:9093"
+#     volumes:
+#       - ./alertmanager:/etc/alertmanager:ro
+#     networks:
+#       - appnet
+
+#   alert-sink:
+#     build: ./alert_sink
+#     container_name: alert-sink
+#     ports:
+#       - "5002:5001"
+#     networks:
+#       - appnet
