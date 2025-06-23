@@ -118,6 +118,8 @@ docker start api-onprem
 
 ## Architecture
 
+![Architecture Diagram](./assets/architecture.png)
+
 - Health Checks: The check keyword on this line ```server onprem api-onprem:5000 maxconn 32 check...``` is the "code" that tells HAProxy to continuously send health checks to the on-prem server to see if it's alive.
 
 - The "code" for this automatic failover is these two lines in the current haproxy/haproxy.cfg file:
