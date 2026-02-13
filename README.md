@@ -71,8 +71,6 @@ xxxxxxxxxxxxxxxx
 
 ### Environment Simulation
 
-Please also mention that for this assignment I have used different ports for on-prem and cloud to simulate those environments.
-
 * The **on-prem** service is exposed on host port `5000`
 * The **cloud** service is exposed on host port `5001`
 
@@ -132,7 +130,6 @@ The check keyword enables the health check on the onprem server.
 
 The backup keyword tells HAProxy: "If the onprem server fails its health check, automatically send all traffic to this cloud server instead."
 
-- Previousl I had an external healthcheck script (Below) and haproxy template which I then replaced with the above configuration:
 
 ```
 import time
@@ -177,13 +174,11 @@ if __name__ == "__main__":
     monitor()
 ```
 
-- The whole idea for the above script was to monitor and then change the haproxy config to onprem or cloud based on the failure but the current project without this script made more sense to me.
-
 ---
 
 ## CI/CD
 
-I have also integrated the CI/CD GitHub Actions workflow in `.github/workflows/main.yml`.
+Integrates the CI/CD GitHub Actions workflow in `.github/workflows/main.yml`.
 
 ```yaml
 name: 'Terraform CI/CD'
@@ -217,20 +212,4 @@ jobs:
 
 ## Monitoring & Observability
 
-I have provisioned Grafana as well. The dashboards can be added as yml files in the repo and then provisioned through terraform. This can be considered as an improvement. With Kubernetes, the dashboards can be added via config maps and gitops.
-
----
-
-## Improvements
-
-- Please note that I can also provision the infrastructure on the cloud via terraform instead of locally for testing. 
-- I have kept the code very simple for the assignment. 
-- I have referenced my old projects and some of the open source repos from Github to complete this task.
-- The code can still be refactored and made modular if necessary
-- Code scanning tools like Blackduck, Trivy can also be added to the CI piplene to enhance security
-
----
-
-## Feedback
-
-I look forward to hearing your feedback and suggestions for improvements. Please feel free to reach out. 
+The dashboards can be added as yml files in the repo and then provisioned through terraform. This can be considered as an improvement. With Kubernetes, the dashboards can be added via config maps and suggestions for improvements. Please feel free to reach out. 
