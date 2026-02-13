@@ -212,4 +212,4 @@ jobs:
 
 ## Monitoring & Observability
 
-The dashboards can be added as yml files in the repo and then provisioned through terraform. This can be considered as an improvement. With Kubernetes, the dashboards can be added via config maps and suggestions for improvements. Please feel free to reach out. 
+The dashboards can be added as yml files in the repo and then provisioned through terraform.  With Kubernetes, the dashboards can be added via config maps. 
